@@ -26,26 +26,37 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. HERO VISUAL TABS (Terminal / Avatar)
   // =========================================================================
   const tabTerminal = document.getElementById('tabTerminal');
-  const tabAvatar = document.getElementById('tabAvatar');
-  const heroTerminalView = document.getElementById('heroTerminalView');
-  const heroAvatarView = document.getElementById('heroAvatarView');
+const tabAvatar = document.getElementById('tabAvatar');
+const heroTerminalView = document.getElementById('heroTerminalView');
+const heroAvatarView = document.getElementById('heroAvatarView');
 
-  if (tabTerminal && tabAvatar && heroTerminalView && heroAvatarView) {
-    tabTerminal.addEventListener('click', () => {
-      tabTerminal.classList.add('active');
-      tabAvatar.classList.remove('active');
-      heroTerminalView.style.display = 'block';
-      heroAvatarView.style.display = 'none';
-    });
+if (tabTerminal && tabAvatar && heroTerminalView && heroAvatarView) {
 
-    tabAvatar.addEventListener('click', () => {
-      tabAvatar.classList.add('active');
-      tabTerminal.classList.remove('active');
-      heroTerminalView.style.display = 'none';
-      heroAvatarView.style.display = 'flex';
-    });
-  }
+  // Show photo by default
+  heroTerminalView.style.display = 'none';
+  heroAvatarView.style.display = 'flex';
 
+  tabAvatar.classList.add('active');
+  tabTerminal.classList.remove('active');
+
+  // Terminal tab
+  tabTerminal.addEventListener('click', () => {
+    tabTerminal.classList.add('active');
+    tabAvatar.classList.remove('active');
+
+    heroTerminalView.style.display = 'block';
+    heroAvatarView.style.display = 'none';
+  });
+
+  // Avatar tab
+  tabAvatar.addEventListener('click', () => {
+    tabAvatar.classList.add('active');
+    tabTerminal.classList.remove('active');
+
+    heroTerminalView.style.display = 'none';
+    heroAvatarView.style.display = 'flex';
+  });
+}
   // =========================================================================
   // 3. DYNAMIC TYPING IN HERO
   // =========================================================================
